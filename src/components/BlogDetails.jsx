@@ -5,14 +5,14 @@ const BlogDetails = ({post}) => {
   return (
     <div className='mt-[50px]'>
       <NavLink to={`/blog/${post.id}`} >
-        <span>{post.title}</span>
+        <span className='bg-green-300'>{post.title}</span>
       </NavLink>
       <p>
-        By
+        By {" "}
         <span>{post.author}</span>
-        on {" "}
+        {" "} on {" "}
         <NavLink to={`/categories/${post.category.replaceAll(" ","-")}`}>
-            <span>{post.category}</span>
+            <span className='bg-blue-600'>{post.category}</span>
         </NavLink>
       </p>
       <p> Posted on {post.date} </p>
@@ -20,7 +20,7 @@ const BlogDetails = ({post}) => {
       <div>
         {post.tags.map( (tag, index) => (
             <NavLink key={index} to={`/tags/${tag.replaceAll(" ","-")}`}>
-                <span>{`#${tag}`}</span>
+                <span className='bg-purple-400'>{` #${tag}`}</span>
             </NavLink>
         ) )}
       </div>
