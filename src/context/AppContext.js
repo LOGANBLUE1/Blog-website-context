@@ -2,13 +2,14 @@ import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../baseUrl";
 
-export const AppContext = createContext();
+export const AppContext = createContext();//step 1: create context
 
-export default function AppContextProvider({ children }) {
-  const [posts, setPosts] = useState([]);
+export default function AppContextProvider({ children }) {//step 2: create context provider
   const [loading, setLoading] = useState(false);
+  const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(null);
+
   const navigate = useNavigate();
 
   // Fetch Blog Data
@@ -21,12 +22,16 @@ export default function AppContextProvider({ children }) {
     if(category) {
       url += `&category=${category}`;
     }
+
     try {
       const res = await fetch(url);
       const data = await res.json();
+
       if (!data.posts || data.posts.length === 0)
         throw new Error("Something Went Wrong");
+
       console.log("Api Response", data);
+
       setPage(data.page);
       setPosts(data.posts);
       setTotalPages(data.totalPages);
@@ -36,11 +41,13 @@ export default function AppContextProvider({ children }) {
       setPosts([]);
       setTotalPages(null);
     }
+
     setLoading(false);
   };
 
   // Handle When Next and Previous button are clicked
   const handlePageChange = (page) => {
+    // fetchBlogPosts(page);
     navigate( { search: `?page=${page}`});
     setPage(page);
   };
