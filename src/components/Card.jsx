@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const BlogDetails = ({post}) => {
+const Card = ({post}) => {
   return (
     <div className='mt-[50px]'>
       <NavLink to={`/blog/${post.id}`} >
@@ -28,4 +28,4 @@ const BlogDetails = ({post}) => {
   )
 }
 
-export default BlogDetails
+export default Card

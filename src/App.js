@@ -18,7 +18,7 @@ export default function App() {
   const location = useLocation();
 
   useEffect(() => {
-    const page =  searchParams.get("page") ?? 1;
+    const page =  searchParams.get("page") ?? 1;//if null then 1
 
     if(location.pathname.includes("tags")) {
       //iska matlab tag wala page show krna h 
@@ -27,7 +27,7 @@ export default function App() {
     }
     else if(location.pathname.includes("categories")) {
       const category = location.pathname.split("/").at(-1).replaceAll("-"," ");
-      fetchBlogPosts(Number(page), null, category);
+      fetchBlogPosts(Number(page), category);
     }
     else {
       fetchBlogPosts(Number(page));

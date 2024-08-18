@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
-import BlogDetails from "./BlogDetails";
+import Card from "./Card";
 
 export default function Blogs() {
   const { posts, loading } = useContext(AppContext);
@@ -17,7 +17,7 @@ export default function Blogs() {
         </div>
       ) : (
         posts.map((post) => (
-          <BlogDetails key={post.id} post={post}/>
+          <Card key={post.id} post={post}/>
         ))
       )}
     </div>

@@ -11,9 +11,9 @@ const CategoryPage = () => {
     const category = location.pathname.split("/").at(-1);
 
   return (
-    <div>
+    <div className='mt-20'>
       <Header/>
-      <div>
+      <div className='flex justify-around'>
         <button
         onClick={() => navigation(-1)}
         >

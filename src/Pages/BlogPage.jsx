@@ -4,7 +4,7 @@ import { AppContext } from '../context/AppContext';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
-import BlogDetails from '../components/BlogDetails';
+import BlogDetails from '../components/Card';
 import { baseUrl } from '../baseUrl';
 
 const BlogPage = () => {
@@ -20,8 +20,7 @@ const BlogPage = () => {
     async function fetchRelatedBlogs() {
         setLoading(true);
         let url = `${newBaseUrl}get-blog?blogId=${blogId}`;
-        console.log("URL is: ");
-        console.log(url);
+        console.log("URL is: ", url);
         try {
             const res = await fetch(url);
             const data = await res.json();

@@ -22,6 +22,7 @@ export default function AppContextProvider({ children }) {//step 2: create conte
     if(category) {
       url += `&category=${category}`;
     }
+    console.log("URL is: ", url);
 
     try {
       const res = await fetch(url);
